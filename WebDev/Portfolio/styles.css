@@ -1,0 +1,830 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total width/height */
+}
+
+/* Root Variables - Define theme colors, shadows, and transitions for easy reuse */
+:root {
+  --primary-color: #0078ff; /* Main theme color */
+  --primary-color-light: #4d6ed8; /* Lighter shade of primary color */
+  --secondary-color: #333; /* Dark text color */
+  --text-color: #4e4e4e; /* General text color */
+  --light-color: #f8f9fa; /* Light background color */
+  --dark-color: #1e1e1e; /* Dark background color */
+  --gray-color: #f4f4f4; /* Light gray background */
+  --white-color: #fff; /* White color */
+  --shadow: 0 5px 25px rgba(0, 0, 0, 0.1); /* Box shadow for subtle depth effect */
+  --transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Enables smooth scrolling behavior for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body styles - Defines typography and background */
+body {
+  font-family: 'Poppins', Arial, sans-serif; /* Sets font family */
+  line-height: 1.6; /* Improves text readability */
+  color: var(--text-color); /* Applies default text color */
+  background-color: var(--light-color); /* Sets a light background */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Container - Used for layout alignment */
+.container {
+  width: 90%;
+  max-width: 1200px; /* Ensures responsiveness */
+  margin: 0 auto; /* Centers the content */
+  padding: 0 15px;
+}
+
+/* Section styles - Adds vertical spacing */
+section {
+  padding: 100px 0;
+}
+
+/* Section header - Centers headings */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* Section title i.e. headings of each section */
+.section-header h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 15px;
+  position: relative;
+}
+
+/* Decorative underline below headings */
+.underline {
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-color);
+  margin: 0 auto 20px;
+}
+
+/* Paragraphs inside section headers */
+.section-header p {
+  font-size: 18px;
+  color: var(--text-color);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
+/* Navbar Styles */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black */
+  padding: 20px 0;
+  position: fixed; /* Sticks navbar to the top  to appear on each section*/
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures navbar is above other elements */
+  transition: var(--transition);
+}
+
+/* Navbar container - Aligns navigation items */
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+  /* Logo Styles i.e portfolio */
+.logo {
+  color: var(--white-color); /* White text color */
+  font-size: 28px; /* Larger font size for the logo */
+  font-weight: 700; /* Bold text */
+  letter-spacing: 1px; /* Adds spacing between letters for readability */
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none; /* Removes default list styling */
+  display: flex; /* Displays items in a row */
+}
+
+/* Spacing between navigation items */
+.nav-links li {
+  margin: 0 15px;
+}
+
+/* Navigation Links - Styling */
+.nav-links li a {
+  text-decoration: none; /* Removes default underline */
+  color: var(--white-color); /* White text color */
+  font-size: 16px;
+  font-weight: 500;
+  transition: var(--transition); /* Smooth transition effect */
+  position: relative;
+  padding: 5px 0;
+}
+
+/* Underline effect on hover */
+.nav-links li a::after {
+  content: ''; /* Creates a pseudo-element */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0; /* Initially hidden */
+  height: 2px;
+  background-color: var(--primary-color-light); /* Underline color */
+  transition: var(--transition); /* Smooth effect */
+}
+
+/* Changes text color on hover */
+.nav-links li a:hover {
+  color: var(--primary-color-light);
+}
+
+/* Expands underline on hover */
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Hero Section - Fullscreen Background */
+.hero {
+  background: url('main3.jpg')  center no-repeat; /* Sets background image */
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-attachment: fixed; /* Keeps the background fixed on scroll */
+  height: 100vh; /* Full viewport height */
+  position: relative;
+  display: flex; /* Centers content horizontally */
+  justify-content: center;
+  align-items: center;
+  color: var(--white-color); /* White text color */
+  text-align: center; /* Centers text */
+}
+
+/* Dark Overlay for the Hero Section */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay effect */
+}
+
+/* Hero Content - Ensures text appears above the overlay */
+.hero-content {
+  position: relative;
+  z-index: 1; /* Ensures text appears above the overlay */
+  max-width: 800px; /* Limits text width */
+  padding: 0 20px;
+}
+
+/* Hero Section - Main Heading */
+.hero-content h1 {
+  font-size: 60px; /* Large font size */
+  font-weight: 700; /* Bold text */
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease; /* Fade-in animation */
+}
+
+/* Hero Section - Subtitle */
+.hero-content p {
+  font-size: 26px; /* Slightly smaller font */
+  font-weight: 300; /* Lighter font */
+  margin-bottom: 30px;
+  animation: fadeInUp 1s ease; /* Fade-in animation */
+}
+
+ /* Hero Section Button Animation */
+.hero-content .btn-primary {
+  animation: fadeIn 1.5s ease; /* Fades in the button smoothly */
+}
+
+/* Fade-in from the top */
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-50px); /* Moves the element 50px upwards */
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0); /* Brings it back to its original position */
+  }
+}
+
+/* Fade-in from the bottom */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(50px); /* Moves the element 50px downwards */
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0); /* Brings it back to its original position */
+  }
+}
+
+/* General fade-in effect */
+@keyframes fadeIn {
+  from {
+      opacity: 0; /* Starts as invisible */
+  }
+  to {
+      opacity: 1; /* Becomes fully visible */
+  }
+}
+
+/* About Section */
+.about {
+  background-color: var(--white-color); /* White background for the About section */
+}
+
+/* Styled Button inside About Section */
+.btn button {
+  background: linear-gradient(135deg, #2156be, #3badc1); /* Gradient background */
+  color: white; /* White text */
+  font-size: 16px;
+  margin-top: 40px; /* Adds spacing */
+  font-weight: bold;
+  padding: 12px 24px; /* Button size */
+  border: none; /* Removes default border */
+  border-radius: 30px; /* Makes button rounded */
+  cursor: pointer; /* Changes cursor to pointer */
+  transition: all 0.3s ease-in-out; /* Smooth hover effect */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+}
+
+/* Button hover effect */
+.btn button:hover {
+  background: linear-gradient(135deg, #6791e6, #2156be); /* Changes gradient */
+  transform: translateY(-3px); /* Moves button up slightly */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Adds a stronger shadow */
+}
+
+/* About Section Content Layout */
+.about-content {
+  display: flex; /* Uses flexbox for alignment */
+  flex-wrap: wrap; /* Ensures responsiveness */
+  gap: 40px; /* Adds space between elements */
+}
+
+/* Profile Box Styling */
+.profile {
+  flex: 1; /* Allows flexibility in size */
+  min-width: 300px; /* Ensures a minimum width */
+  text-align: center; /* Centers text */
+  background-color: var(--white-color); /* White background */
+  padding: 30px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: var(--shadow); /* Adds shadow */
+  transition: var(--transition); /* Smooth hover effect */
+}
+
+/* Hover Effect for Profile Box */
+.profile:hover {
+  transform: translateY(-10px); /* Moves box up slightly */
+}
+
+/* Profile Image Styling */
+.profile-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%; /* Circular image */
+  margin-bottom: 20px;
+  object-fit: cover; /* Ensures image is properly fitted */
+  border: 5px solid var(--gray-color); /* Adds border */
+}
+
+ /* Profile Section */
+.profile h3 {
+  font-size: 24px; /* Sets font size for the name/title */
+  margin-bottom: 5px; /* Adds space below the heading */
+  color: var(--secondary-color); /* Uses the secondary color for text */
+}
+
+.profile .title {
+  font-size: 18px; /* Slightly smaller than the name */
+  color: var(--primary-color); /* Uses primary color for emphasis */
+  margin-bottom: 15px; /* Adds spacing below */
+}
+
+/* Contact Information */
+.contact-info {
+  margin-bottom: 20px; /* Adds space below the contact section */
+}
+
+.contact-info p {
+  margin-bottom: 10px; /* Adds space between contact details */
+  color: var(--text-color); /* Sets text color */
+}
+
+.contact-info i {
+  color: var(--primary-color); /* Icon color */
+  margin-right: 10px; /* Space between icon and text */
+}
+
+/* Social Media Links */
+.social-links {
+  display: flex; /* Arranges links in a row */
+  justify-content: center; /* Centers the links */
+  gap: 15px; /* Adds space between links */
+}
+
+/* Individual Social Link Styling */
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Circular size */
+  height: 40px;
+  background-color: var(--primary-color); /* Background color */
+  color: var(--white-color); /* White icon */
+  border-radius: 50%; /* Makes them circular */
+  transition: var(--transition); /* Smooth hover effect */
+}
+
+/* Hover effect for social links */
+.social-links a:hover {
+  background-color: var(--secondary-color); /* Changes color */
+  transform: translateY(-3px); /* Moves up slightly */
+}
+
+/* About Text Section */
+.about-text {
+  flex: 2; /* Takes up more space than profile section */
+  min-width: 300px; /* Ensures a minimum width */
+}
+
+.about-text h3 {
+  font-size: 28px; /* Larger font for section heading */
+  margin-bottom: 20px; /* Adds spacing */
+  color: var(--secondary-color); /* Dark color */
+  position: relative; /* Needed for underline effect */
+  padding-bottom: 10px; /* Space for the underline */
+}
+
+/* Underline Effect for About Section Title */
+.about-text h3::after {
+  content: ''; /* Creates the underline */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px; /* Sets the width */
+  height: 3px; /* Thickness of the line */
+  background-color: var(--primary-color); /* Line color */
+}
+
+/* Paragraphs inside About Section */
+.about-text p {
+  margin-bottom: 20px; /* Adds space between paragraphs */
+  line-height: 1.8; /* Increases readability */
+}
+
+/* Skills Section */
+.skills {
+  margin-top: 30px; /* Adds space above the section */
+}
+
+.skills h3 {
+  margin-bottom: 20px; /* Adds spacing below heading */
+}
+
+/* Individual Skill Container */
+.skill {
+  margin-bottom: 20px; /* Space between skills */
+}
+
+/* Skill Name and Percentage Display */
+.skill-name {
+  display: flex; /* Aligns name and percentage in a row */
+  justify-content: space-between; /* Places name on left, percentage on right */
+  margin-bottom: 8px; /* Space before skill bar */
+  font-weight: 500; /* Bold text */
+}
+
+/* Skill Progress Bar */
+.skill-bar {
+  height: 10px; /* Sets thickness */
+  background-color: var(--gray-color); /* Light gray background */
+  border-radius: 5px; /* Rounded corners */
+  overflow: hidden; /* Ensures progress bar stays within bounds */
+}
+
+/* Animated Skill Level */
+.skill-level {
+  height: 100%; /* Fills the full height of skill bar */
+  background-color: var(--primary-color); /* Sets skill bar color */
+  border-radius: 5px; /* Matches outer border radius */
+  transition: width 1s ease; /* Smooth width animation */
+}
+
+  /* Services Section */
+.services {
+  background-color: var(--gray-color); /* Light gray background */
+}
+
+/* Service Cards Container */
+.service-cards {
+  display: grid; /* Uses grid layout for better responsiveness */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjusts columns dynamically */
+  gap: 30px; /* Adds spacing between cards */
+}
+
+/* Individual Service Card */
+.service-card {
+  background-color: var(--white-color); /* White background for contrast */
+  padding: 40px 30px; /* Spacing inside the card */
+  text-align: center; /* Centers text and icon */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: var(--shadow); /* Soft shadow for a lifted effect */
+  transition: var(--transition); /* Smooth hover effects */
+  position: relative; /* Needed for hover background effect */
+  overflow: hidden; /* Ensures hover effect doesn't overflow */
+  z-index: 1; /* Keeps content above background effect */
+}
+
+/* Hover Effect - Background Overlay */
+.service-card::before {
+  content: ''; /* Creates an overlay */
+  position: absolute; /* Covers entire card */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0; /* Starts invisible */
+  background-color: var(--primary-color); /* Overlay color */
+  transition: var(--transition); /* Smooth transition */
+  z-index: -1; /* Keeps it behind the content */
+}
+
+/* Expands overlay on hover */
+.service-card:hover::before {
+  height: 100%; /* Fills entire card */
+}
+
+/* Hover Effect - Moves the card slightly up */
+.service-card:hover {
+  transform: translateY(-10px); /* Creates a floating effect */
+}
+
+/* Changes text and icon color on hover */
+.service-card:hover h3,
+.service-card:hover p,
+.service-card:hover .service-icon i {
+  color: var(--white-color); /* White text for better contrast */
+}
+
+/* Service Icon Styling */
+.service-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray-color); /* Matches section background */
+  border-radius: 50%; /* Circular icon container */
+  margin: 0 auto 25px; /* Centers and adds space below */
+  transition: var(--transition); /* Smooth color change */
+}
+
+/* Icon background effect on hover */
+.service-card:hover .service-icon {
+  background-color: rgba(255, 255, 255, 0.2); /* Light transparent overlay */
+}
+
+/* Service Icon Size and Color */
+.service-icon i {
+  font-size: 32px; /* Adjusts icon size */
+  color: var(--primary-color); /* Matches theme */
+  transition: var(--transition); /* Smooth hover effect */
+}
+
+/* Service Title */
+.service-card h3 {
+  font-size: 22px; /* Adjusts text size */
+  margin-bottom: 15px; /* Space below */
+  color: var(--secondary-color); /* Dark text */
+  transition: var(--transition); /* Smooth hover effect */
+}
+
+/* Service Description */
+.service-card p {
+  font-size: 16px; /* Text size */
+  color: var(--text-color); /* Subtle color */
+  transition: var(--transition); /* Smooth hover effect */
+}
+
+ /* Work Section */
+.work {
+  background-color: var(--white-color); /* Sets a clean white background */
+}
+
+/* Portfolio Filter Buttons */
+.portfolio-filter {
+  display: flex; /* Aligns filter buttons in a row */
+  justify-content: center; /* Centers buttons */
+  flex-wrap: wrap; /* Allows wrapping for responsiveness */
+  margin-bottom: 40px; /* Space below filters */
+}
+
+/* Filter Button */
+.filter-btn {
+  background: none; /* No background initially */
+  border: none; /* Removes default border */
+  padding: 8px 20px; /* Comfortable button padding */
+  margin: 0 5px 10px; /* Adds spacing between buttons */
+  font-size: 16px; /* Readable text size */
+  cursor: pointer; /* Indicates interactivity */
+  transition: var(--transition); /* Smooth effects */
+  color: var(--text-color); /* Default text color */
+  border-radius: 30px; /* Rounded edges */
+}
+
+/* Active and Hover State for Filter Button */
+.filter-btn.active,
+.filter-btn:hover {
+  background-color: var(--primary-color); /* Highlights active filter */
+  color: var(--white-color); /* White text for contrast */
+}
+
+/* Portfolio Grid Layout */
+.portfolio-grid {
+  display: grid; /* Enables grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Responsive grid */
+  gap: 30px; /* Space between grid items */
+}
+
+/* Portfolio Item */
+.portfolio-item {
+  background-color: var(--white-color); /* White card background */
+  border-radius: 10px; /* Smooth rounded corners */
+  overflow: hidden; /* Ensures no content spills out */
+  box-shadow: var(--shadow); /* Adds soft shadow effect */
+  transition: var(--transition); /* Enables smooth effects */
+}
+
+/* Portfolio Item Hover Effect */
+.portfolio-item:hover {
+  transform: translateY(-10px); /* Slight lift effect */
+}
+
+/* Portfolio Image Container */
+.portfolio-img {
+  position: relative; /* Needed for overlay positioning */
+  overflow: hidden; /* Prevents overflow */
+}
+
+/* Portfolio Image */
+.portfolio-img img {
+  width: 100%; /* Ensures full width */
+  height: 250px; /* Fixed height */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  transition: var(--transition); /* Smooth transition */
+}
+
+/* Image Zoom Effect on Hover */
+.portfolio-item:hover .portfolio-img img {
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Overlay Effect */
+.portfolio-overlay {
+  position: absolute; /* Positioned over the image */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 120, 255, 0.8); /* Semi-transparent blue overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Initially hidden */
+  transition: var(--transition); /* Smooth fade-in effect */
+}
+
+/* Show overlay on hover */
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1; /* Fully visible on hover */
+}
+
+/* Overlay Content (Icons/Links) */
+.overlay-content {
+  display: flex; /* Aligns overlay buttons */
+  gap: 15px; /* Adds spacing between buttons */
+}
+
+/* Overlay Buttons */
+.overlay-content a {
+  display: flex; /* Centers icons */
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background-color: var(--white-color); /* White background */
+  color: var(--primary-color); /* Matches theme */
+  border-radius: 50%; /* Circular shape */
+  transition: var(--transition); /* Smooth hover effect */
+  transform: translateY(20px); /* Initially pushed down */
+  opacity: 0; /* Initially invisible */
+}
+
+/* Bring icons up and fade in on hover */
+.portfolio-item:hover .overlay-content a {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Hover effect for overlay buttons */
+.overlay-content a:hover {
+  background-color: var(--secondary-color); /* Dark background */
+  color: var(--white-color); /* White icon color */
+}
+
+/* Delays for button animations */
+.overlay-content a:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.overlay-content a:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+/* Portfolio Info Section */
+.portfolio-info {
+  padding: 20px; /* Adds spacing inside the card */
+}
+
+/* Portfolio Item Title */
+.portfolio-info h3 {
+  font-size: 20px; /* Title font size */
+  margin-bottom: 5px; /* Space below */
+  color: var(--secondary-color); /* Dark color for contrast */
+}
+
+/* Portfolio Item Description */
+.portfolio-info p {
+  font-size: 14px; /* Smaller text */
+  color: var(--primary-color); /* Matches theme color */
+}
+
+  
+.contact {
+  background-color: var(--white-color); /* Clean white background */
+}
+
+/* Layout for Contact Section */
+.contact-content {
+  display: flex; /* Aligns form and contact info side by side */
+  flex-wrap: wrap; /* Ensures responsiveness */
+  gap: 40px; /* Space between sections */
+}
+
+/* Contact Info Section */
+.contact-info {
+  flex: 1; /* Takes up available space */
+  min-width: 300px; /* Prevents shrinking too much */
+}
+
+/* Individual Contact Item */
+.contact-item {
+  display: flex; /* Aligns icon and text side by side */
+  margin-bottom: 30px; /* Space between items */
+}
+
+/* Contact Item Icon */
+.contact-item .icon {
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary-color); /* Primary color background */
+  border-radius: 50%; /* Circular shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px; /* Space between icon and text */
+}
+
+/* Contact Icon Styling */
+.contact-item .icon i {
+  font-size: 24px; /* Larger icon */
+  color: var(--white-color); /* White for contrast */
+}
+
+/* Contact Item Title */
+.contact-item .text h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: var(--secondary-color); /* Secondary color for contrast */
+}
+
+/* Contact Item Text */
+.contact-item .text p {
+  color: var(--text-color); /* Default text color */
+}
+
+/* Contact Form Section */
+.contact-form {
+  flex: 2; /* Takes up more space than contact info */
+  min-width: 300px; /* Prevents shrinking */
+}
+
+/* Form Input Fields */
+.form-group {
+  margin-bottom: 20px; /* Space between inputs */
+}
+
+/* Input and Textarea Styling */
+.form-group input,
+.form-group textarea {
+  width: 100%; /* Full width */
+  padding: 12px 15px; /* Comfortable padding */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 5px; /* Smooth edges */
+  font-size: 16px; /* Readable text */
+  transition: var(--transition); /* Smooth focus effect */
+}
+
+/* Textarea Specific Styling */
+.form-group textarea {
+  height: 150px; /* Fixed height */
+  resize: none; /* Prevent resizing */
+}
+
+/* Input and Textarea Focus Effect */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color); /* Highlight on focus */
+}
+/* Primary Button - Used for calls to action */
+.btn-primary {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 12px 30px;
+  border-radius: 30px; /* Rounded button */
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  border: 2px solid var(--primary-color);
+}
+
+/* Hover effect for button */
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+/* Secondary Button Styling */
+.btn-secondary {
+  display: inline-block;
+  background-color: var(--primary-color); /* Button color */
+  color: var(--white-color); /* White text */
+  padding: 12px 30px; /* Button size */
+  border-radius: 30px; /* Smooth edges */
+  text-decoration: none; /* No underline */
+  font-weight: 500; /* Medium weight text */
+  transition: var(--transition); /* Smooth hover effect */
+  border: 2px solid var(--primary-color); /* Border matches button */
+}
+/* Hover effect for button */
+.btn-secondary:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+footer {
+  background-color: var(--secondary-color); /* Dark background */
+  color: var(--white-color); /* White text for contrast */
+  padding: 30px 0; /* Padding above and below */
+  text-align: center; /* Centered text */
+}
+
+/* Footer Content Layout */
+.footer-content {
+  display: flex;
+  justify-content: space-between; /* Spaces elements apart */
+  align-items: center; /* Aligns vertically */
+  flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+/* Footer Paragraph */
+.footer-content p {
+  margin: 10px 0; /* Space around text */
+}
+
+/* Social Links in Footer */
+.footer-content .social-links {
+  display: flex; /* Aligns social icons in a row */
+  gap: 15px; /* Space between icons */
+}
+
+/* Social Link Button */
+.footer-content .social-links a {
+  width: 35px;
+  height: 35px;
+  background-color: rgba(255, 255, 255, 0.1); /* Light transparent background */
+}
+
+/* Social Link Hover Effect */
+.footer-content .social-links a:hover {
+  background-color: var(--primary-color); /* Changes color on hover */
+}
